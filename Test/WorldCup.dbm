@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1" last-position="0,0" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<database name="Assgn2" encoding="UTF8" lc-collate="English_Canada.1252" lc-ctype="English_Canada.1252" is-template="false" allow-conns="true">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<sequence name="team_t_team_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="team_t">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="60" y="60"/>
+	<column name="team_id" not-null="true" sequence="public.team_t_team_id_seq">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="team_name" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="team_ranking" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="team_numberofparticipation" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="team_t_pk" type="pk-constr" table="public.team_t">
+		<columns names="team_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="something">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="380" y="200"/>
+	<column name="fname" not-null="true">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="lname" not-null="true">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="city">
+		<type name="bigint" length="0"/>
+	</column>
+	<constraint name="something_pk" type="pk-constr" table="public.something">
+		<columns names="fname,lname" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="table2">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="780" y="60"/>
+	<column name="cityid" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="cityname" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="table2_pkey" type="pk-constr" table="public.table2">
+		<columns names="cityid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="city_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.table2" table="public.something">
+	<columns names="city" ref-type="src-columns"/>
+	<columns names="cityid" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_something_table2" type="relfk"
+	 custom-color="#83af1f"
+	 src-table="public.something"
+	 dst-table="public.table2" reference-fk="city_fk"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

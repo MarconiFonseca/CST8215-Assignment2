@@ -1,0 +1,102 @@
+-- Author: Marconi Fonseca
+-- Date:Nov 2018
+
+
+DELETE FROM Team_table;
+DELETE FROM Players_table;
+DELETE FROM Coach_table;
+DELETE FROM local_of_the_games_table;
+DELETE FROM many_Team_table_has_many_local_of_the_games_table;
+
+
+-- Add data in Team Table
+INSERT INTO Team_table( team_name , Team_Ranking_FIFA, Team_Number_of_Participation ,team_continent,team_Has_World_cup ) VALUES ( 'Brazil', '3', '14', 'South America' ,'Yes');
+
+INSERT INTO Team_table( team_name , Team_Ranking_FIFA , Team_Number_of_Participation ,team_continent, team_Has_World_cup) VALUES ( 'Argentina', '2', '12', 'South America','Yes' );
+
+INSERT INTO Team_table( team_name , Team_Ranking_FIFA , Team_Number_of_Participation ,team_continent,team_Has_World_cup ) VALUES ( 'Germany', '4', '13', 'EUROPE','Yes');
+
+INSERT INTO Team_table( team_name , Team_Ranking_FIFA , Team_Number_of_Participation ,team_continent,team_Has_World_cup  ) VALUES ( 'Italy', '6', '12', 'EUROPE','Yes');
+
+INSERT INTO Team_table( team_name , Team_Ranking_FIFA , Team_Number_of_Participation ,team_continent,team_Has_World_cup  ) VALUES ( 'Spain', '1', '12', 'EUROPE','Yes');
+
+INSERT INTO Team_table( team_name , Team_Ranking_FIFA , Team_Number_of_Participation ,team_continent,team_Has_World_cup  ) VALUES ( 'Canada', '14', '6', 'North America','No');
+
+INSERT INTO Team_table( team_name , Team_Ranking_FIFA , Team_Number_of_Participation ,team_continent,team_Has_World_cup  ) VALUES ( 'England', '5', '13', 'EUROPE','Yes');
+
+
+
+-- Add Team data
+INSERT INTO Team_T( Team_Code, Team_Name, Country_Code ) VALUES ( 'VAS', 'Vasco', 'BRA');
+INSERT INTO Team_T( Team_Code, Team_Name, Country_Code ) VALUES ( 'BAR', 'Barcelona', 'ESP');
+INSERT INTO Team_T( Team_Code, Team_Name, Country_Code ) VALUES ( 'ARS', 'Arsenal', 'ENG');
+INSERT INTO Team_T( Team_Code, Team_Name, Country_Code ) VALUES ( 'CHE', 'Chelsea', 'ENG');
+INSERT INTO Team_T( Team_Code, Team_Name, Country_Code ) VALUES ( 'RMA', 'Real Madrid', 'ESP');
+INSERT INTO Team_T( Team_Code, Team_Name, Country_Code ) VALUES ( 'FLA', 'Flamengo', 'BRA');
+INSERT INTO Team_T( Team_Code, Team_Name, Country_Code ) VALUES ( 'RPL', 'River Plate', 'ARG');
+INSERT INTO Team_T( Team_Code, Team_Name, Country_Code ) VALUES ( 'BJR', 'Boca Juniors', 'ARG');
+INSERT INTO Team_T( Team_Code, Team_Name, Country_Code ) VALUES ( 'LAG', 'LA Galaxy', 'EUA');
+INSERT INTO Team_T( Team_Code, Team_Name, Country_Code ) VALUES ( 'TIG', 'Tigres', 'MEX');
+INSERT INTO Team_T( Team_Code, Team_Name, Country_Code ) VALUES ( 'CHI', 'Chivas', 'MEX');
+
+-- Add Coach Data
+INSERT INTO Coach_T ( Coach_Name, Team_Name ) VALUES ( 'José Ricardo', 'Vasco' );
+INSERT INTO Coach_T ( Coach_Name, Team_Name ) VALUES ( 'Ernesto Valverde', 'Barcelona' );
+INSERT INTO Coach_T ( Coach_Name, Team_Name ) VALUES ( 'Arsene Wenger', 'Arsenal' );
+INSERT INTO Coach_T ( Coach_Name, Team_Name ) VALUES ( 'Antonio Conte', 'Chelsea' );
+INSERT INTO Coach_T ( Coach_Name, Team_Name ) VALUES ( 'Zinedine Zidane', 'Real Madrid' );
+INSERT INTO Coach_T ( Coach_Name, Team_Name ) VALUES ( 'Paulo Cesar Carpegiani', 'Flamengo' );
+INSERT INTO Coach_T ( Coach_Name, Team_Name ) VALUES ( 'Marcello Galardo', 'River Plate' );
+INSERT INTO Coach_T ( Coach_Name, Team_Name ) VALUES ( 'Guillermo Barros Schelotto', 'Boca Juniors' );
+INSERT INTO Coach_T ( Coach_Name, Team_Name ) VALUES ( 'Sigi Schmid', 'LA Galaxy' );
+INSERT INTO Coach_T ( Coach_Name, Team_Name ) VALUES ( 'Ricardo Ferretti', 'Tigres' );
+INSERT INTO Coach_T ( Coach_Name, Team_Name ) VALUES ( 'Matías Almeyda', 'Chivas' );
+
+-- Add Championship data
+INSERT INTO Championship_T( Champ_Name, Country_Code, Continent_Name ) VALUES ( 'Campeonato Brasileiro', 'BRA',null);
+INSERT INTO Championship_T( Champ_Name, Country_Code, Continent_Name ) VALUES ( 'Champions League', null, 'Europe' );
+INSERT INTO Championship_T( Champ_Name, Country_Code, Continent_Name ) VALUES ( 'Libertadores', null, 'South America');
+INSERT INTO Championship_T( Champ_Name, Country_Code, Continent_Name ) VALUES ( 'Premier League', 'ENG', null);
+INSERT INTO Championship_T( Champ_Name, Country_Code, Continent_Name ) VALUES ( 'La Liga', 'ESP', null);
+INSERT INTO Championship_T( Champ_Name, Country_Code, Continent_Name ) VALUES ( 'Superliga Argentina', 'ARG', null);
+INSERT INTO Championship_T( Champ_Name, Country_Code, Continent_Name ) VALUES ( 'Liga MX', 'MEX', null);
+INSERT INTO Championship_T( Champ_Name, Country_Code, Continent_Name ) VALUES ( 'Major League Soccer', 'EUA', null);
+
+-- Add Teamonchamp data
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 1, 'Campeonato Brasileiro', 'Vasco');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 2, 'Campeonato Brasileiro', 'Flamengo');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 3, 'Champions League', 'Barcelona');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 4, 'Champions League', 'Real Madrid');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 5, 'Champions League', 'Arsenal');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 6, 'Champions League', 'Chelsea');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 7, 'Libertadores', 'Vasco');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 8, 'Libertadores', 'Flamengo');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 9, 'Libertadores', 'River Plate');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 10, 'Libertadores', 'Boca Juniors');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 11, 'Libertadores', 'Tigres');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 12, 'Libertadores', 'Chivas');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 13, 'Premier League', 'Chelsea');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 14, 'Premier League', 'Arsenal');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 15, 'La Liga', 'Barcelona');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 16, 'La Liga', 'Real Madrid');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 17, 'Superliga Argentina', 'Boca Juniors');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 18, 'Superliga Argentina', 'River Plate');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 19, 'Liga MX', 'Tigres');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 20, 'Liga MX', 'Chivas');
+INSERT INTO Teamonchamp_T(Champ_ID, Champ_Name, Team_Name ) VALUES ( 21, 'Major League Soccer', 'LA Galaxy');
+
+-- Add Players data
+INSERT INTO Players_T( Player_Name, Player_Position, Team_Name, Country_Code ) VALUES ( 'Martín Silva', 'Goalkeeper', 'Vasco', 'BRA' );
+INSERT INTO Players_T( Player_Name, Player_Position, Team_Name, Country_Code ) VALUES ( 'Lionel Messi', 'Forward', 'Barcelona', 'ARG' );
+INSERT INTO Players_T( Player_Name, Player_Position, Team_Name, Country_Code ) VALUES ( 'Christiano Ronaldo', 'Forward', 'Real Madrid', 'POR' );
+INSERT INTO Players_T( Player_Name, Player_Position, Team_Name, Country_Code ) VALUES ( 'Riquelme', 'Midfielder', 'Boca Juniors', 'ARG' );
+INSERT INTO Players_T( Player_Name, Player_Position, Team_Name, Country_Code ) VALUES ( 'Ariel Rojas', 'Midfielder', 'River Plate', 'ARG' );
+INSERT INTO Players_T( Player_Name, Player_Position, Team_Name, Country_Code ) VALUES ( 'Willian', 'Midfielder', 'Chelsea', 'BRA' );
+INSERT INTO Players_T( Player_Name, Player_Position, Team_Name, Country_Code ) VALUES ( 'Nacho Monreal', 'Defender', 'Arsenal', 'ESP' );
+INSERT INTO Players_T( Player_Name, Player_Position, Team_Name, Country_Code ) VALUES ( 'Jair Pereira', 'Defender', 'Chivas', 'MEX' );
+INSERT INTO Players_T( Player_Name, Player_Position, Team_Name, Country_Code ) VALUES ( 'Eduardo Vargas', 'Forward', 'Tigres', 'CHI' );
+INSERT INTO Players_T( Player_Name, Player_Position, Team_Name, Country_Code ) VALUES ( 'Zlatan Ibrahimovic', 'Forward', 'Tigres', 'SWE' );
+
+
+-- eof: Inventory-DML.sql
+
